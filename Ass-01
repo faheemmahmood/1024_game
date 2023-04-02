@@ -64,3 +64,26 @@ void integrate_tiles(int row, int col, int next_row, int next_col) {
 		hiscore=score;
 	}
 }
+////////////////////////////////////////////////////////////////
+//this function actually moves tiles according to user input
+bool tiles_movement(int row, int col) {
+    bool moved = false;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            int next_row = i+row;
+            int next_col = j+col;
+            if (board[i][j]!=0 && next_row>=0 && next_row<4 && next_col>=0 && next_col<4) {
+                if (board[next_row][next_col]==0) {
+                    board[next_row][next_col]=board[i][j];
+                    board[i][j]=0;
+                    moved = true;
+                } else if (board[i][j]==board[next_row][next_col]) {
+                    integrate_tiles(i,j,next_row,next_col);
+                    moved = true;
+                }
+            }
+        }
+        
+    }
+    return moved;
+}
