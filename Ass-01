@@ -1,0 +1,27 @@
+//headers
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+using namespace std;
+
+//global variables
+int board[4][4] = {0};
+int score = 0;
+int hiscore=0;
+
+// gamboard function which displays gameboard status
+void gameboard() {
+    system("cls");
+    cout << "Score: " << score <<" High score: " << hiscore << " Exit: e" <<endl;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (board[i][j]!=0){
+               printf("|%4d|",board[i][j]);
+            }
+            else{
+                cout<<"|____|";
+            }
+        }
+        cout << endl;
+    }
+}
