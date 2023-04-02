@@ -181,6 +181,7 @@ void resetGameboard() {
             board[row][col] = 0;
         }
     }
+    score=0;
 }
 //////////////////////////////////////////////////////////////
 // main function in which every function is utilized to make presentable game 
