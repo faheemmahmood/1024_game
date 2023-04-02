@@ -25,3 +25,32 @@ void gameboard() {
         cout << endl;
     }
 }
+///////////////////////////////////////////////////////////////////
+// this function generates new numbers in empty spaces in gameboard
+void new_tiles() {
+	srand(time(0));
+   int emptyspace_count=0,empty_space[16][2],newtile_pos,newtile_value;
+   //calculating empty spaces (at that instance) everytime this function is called
+   for (int i=0;i<4;i++){
+        for (int j=0;j<4;j++){
+        	if (board[i][j]==0){
+			    empty_space[emptyspace_count][0]=i;
+		        empty_space[emptyspace_count][1]=j;
+			    emptyspace_count++;
+			}
+		}
+	}
+   //simple logic to find random empty space assigning that space to new numbers which will either be 2 or 4
+   if (emptyspace_count>0){
+   newtile_pos=rand()%emptyspace_count;
+   int decision=rand()%2;
+   if (decision==0){
+   	newtile_value=2;
+   }
+   else{
+   	newtile_value=4;
+   }
+   // updating global board numbers with new tile positions and value
+   board[empty_space[newtile_pos][0]][empty_space[newtile_pos][1]]=newtile_value; 	
+   }
+}
