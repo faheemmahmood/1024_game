@@ -171,3 +171,14 @@ void mainmenu(){
         exit(0);
     }
 }
+//////////////////////////////////////////////////////////
+//this function resets the gameboard it is called when user requestes another game after prev game is finished or over
+void resetGameboard() {
+    // Loop through each row and column of the gameboard
+    for (int row = 0; row < 4; row++) {
+        for (int col = 0; col < 4; col++) {
+            // Set the current cell to an empty space
+            board[row][col] = 0;
+        }
+    }
+}
