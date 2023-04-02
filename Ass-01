@@ -182,3 +182,32 @@ void resetGameboard() {
         }
     }
 }
+//////////////////////////////////////////////////////////////
+// main function in which every function is utilized to make presentable game 
+int main() {
+	resetGameboard();
+	mainmenu();
+	new_tiles();
+    gameboard();
+    while (!is_game_over()) {
+		input_movement();
+		gameboard();
+    }
+	cout << "Game over!" << "press m to go back to main menu and try again."<< endl;
+    char back2main;
+    while (true){
+        cin >> back2main;
+        if (cin.fail() || back2main!='m'){
+            cout<<"invalid input";
+            cin.clear();
+            cout.clear();
+            cin.ignore(CHAR_MAX,'\n');
+        }
+        else{
+            system("cls");
+            main();
+        }
+
+    }
+    return 0;
+}
