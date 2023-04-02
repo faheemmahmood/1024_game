@@ -154,3 +154,20 @@ if (score==131072){
 }
 return true;
 }
+/////////////////////////////////////////////////////////////////
+//this function displays main menu to user
+void mainmenu(){
+    cout << "======= Hello and welcome to 2048 game =======" << endl;
+    cout << "======= Implemented by Faheem Mahmood =======" << endl;
+    cout << "======= use arrow keys to move tiles =======" << endl;
+    cout << "~ press any key to start the game but e to exit ~" << endl;
+    char ent=_getch();
+    while(!cin>>ent){
+        cout<<"Invalid input";
+        cin.clear();
+        cin.ignore(CHAR_MAX,'\n');
+    }
+    if (ent=='e'){
+        exit(0);
+    }
+}
