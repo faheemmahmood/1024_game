@@ -130,3 +130,27 @@ void input_movement(){
         new_tiles();
     }
 } 
+///////////////////////////////////////////////////////////////////////////////// 
+// this function checks if the game is over, it is also the condion for while loop in main()
+bool is_game_over() {
+for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 4; j++) {
+        if (board[i][j] == 0) {
+            return false;
+        }
+        //checks if there are same value numbers in row, meaning if possible moves exits, if there are it will return false
+        if (i < 4 - 1 && board[i][j] == board[i+1][j]) {
+            return false;
+        }
+        //checks if there are same value numbers in column, meaning if possible moves exits, if there are it will return false
+        if (j < 4 - 1 && board[i][j] == board[i][j+1]) {
+            return false;
+        }
+    }
+}
+if (score==131072){
+    cout<<"Congrats! you beat the game. Maximum Score reached";
+    return true;
+}
+return true;
+}
