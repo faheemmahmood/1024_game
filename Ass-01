@@ -54,3 +54,13 @@ void new_tiles() {
    board[empty_space[newtile_pos][0]][empty_space[newtile_pos][1]]=newtile_value; 	
    }
 }
+///////////////////////////////////////////////////////////////////////
+// this function multiplies tiles by 2 and only called if they merge/integrate and are equal
+void integrate_tiles(int row, int col, int next_row, int next_col) {
+    board[row][col] *= 2;
+    board[next_row][next_col] = 0;
+    score += board[row][col];
+    if (hiscore<score){
+		hiscore=score;
+	}
+}
