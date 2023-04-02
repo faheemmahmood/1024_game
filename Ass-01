@@ -87,3 +87,46 @@ bool tiles_movement(int row, int col) {
     }
     return moved;
 }
+///////////////////////////////////////////////////////////////////
+// this function takes valid user input 
+void input_movement(){
+    int input = _getch();
+	int row,col;
+    bool moved = false;
+    if (input=='e'){
+        exit(0);
+    }
+    switch (input) {
+        case 72:  //up
+            for (int i = 1; i < 4; i++) {
+              	if (tiles_movement(-i,0)) {
+					moved = true;	
+				}
+			}
+			break;
+        case 80:  //down
+            for (int i = 1; i < 4; i++) {
+                if (tiles_movement(i,0)) {
+					moved = true;
+				}
+			}
+            break;
+        case 75:  //left
+            for (int i = 1; i < 4; i++) {
+                if (tiles_movement(0,-i)) {
+					moved = true;
+				}
+            }
+            break;
+        case 77:  //right
+            for (int i = 1; i < 4; i++) {
+                if (tiles_movement(0,i)) {
+					moved = true;
+				}
+            }
+            break;
+    }
+    if (moved) {
+        new_tiles();
+    }
+} 
